@@ -1,0 +1,151 @@
+/* Estilos compartidos y específicos para la página de Crear cuenta */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(to right, rgb(3, 3, 3), rgb(83, 88, 88));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 20px;
+    overflow-x: hidden; 
+}
+
+.main-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.container {
+    background: linear-gradient(to right, rgb(2, 2, 2), rgb(16, 36, 36));
+    padding: 30px;
+    border-radius: 0px 2px 2px 0px;
+    border: solid #ffffff;
+    box-shadow: 0px 0px 20px #cdcdcd;
+    max-width: 89.5%;
+    margin-left: 20px;
+    height: 800px;
+    width: 400px;
+
+}
+
+h2 {
+    text-align: center;
+    color: #cdcdcd;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #cdcdcd;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px groove #1a1a1a;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, rgb(32, 5, 238), rgb(5, 141, 238));
+    color: #ffffff;
+    border: groove 4px #92c5fc;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.link-consulta {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link-consulta:hover {
+    text-decoration: underline;
+}
+
+img {
+    border: solid 3.5px #ffffff;
+    box-shadow: #cdcdcd 0px 0px 10px;
+}
+
+.Alumno {
+    background: linear-gradient(to right, rgb(11, 11, 11), rgb(45, 49, 52));
+    border: solid 2px #ffffff;
+    color: #cdcdcd;
+    box-shadow: #ffffff 0px 0px 10px;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    width: 50%;
+    box-sizing: border-box;
+    margin-left: 20px; 
+    margin-right: auto; 
+    margin-top: 50px; 
+}
+
+.Alumno h2 {
+    color: #cdcdcd;
+    margin-bottom: 10px;
+}
+
+.Alumno ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Alumno li {
+    margin-bottom: 5px;
+}
+
+.Alumno p {
+    color: #ffffff;
+}
+
+.Logotipo {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+
+.small-note {
+    color: #cdcdcd;
+    font-size: 12px;
+    margin-top: 10px;
+}
+span{
+
+    color: #cdcdcd;
+}
+.Textinho{
+    text-align: center;
+}
