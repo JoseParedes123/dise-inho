@@ -47,23 +47,21 @@ footer{
 }
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 33.3333333333% 33.3333333333% 33.3333333333%;
 }
 .product:hover{
     filter: drop-shadow(3px 2px 5px rgba(67, 67, 67, 0.75));
+    background-image: rgb(255, 239, 222);
     background-image: linear-gradient(rgb(255, 239, 222) 50%, rgb(219, 205, 190) 100%);
 }
 .product{
-    display: grid;
     background-color: rgb(255, 239, 222);
-    padding: 5px 5px 5px 5px;
-    margin: 5px 5px 5px 5px;
-    height:fit-content;
-    grid-template-rows: 1fr 1fr;
+    margin: 5%;
+    padding: 1%;
     border-radius: 10px;
     transition: 200ms;
 }
 .prodImage{
-    height: 20%;
+    width: 20%;
 }
 .shadow{filter: drop-shadow(3px 2px 5px rgba(67, 67, 67, 0.75))};
