@@ -1,7 +1,7 @@
 /* Estilos compartidos y específicos para la página de Crear cuenta */
 body {
     font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(to right, rgb(3, 3, 3), rgb(83, 88, 88));
+    background-color:rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -22,21 +22,21 @@ body {
 }
 
 .container {
-    background: linear-gradient(to right, rgb(2, 2, 2), rgb(16, 36, 36));
+    background-color:rgb(255, 255, 255);
     padding: 30px;
     border-radius: 0px 2px 2px 0px;
-    border: solid #ffffff;
+    border: solid #cdcdcd;
     box-shadow: 0px 0px 20px #cdcdcd;
     max-width: 89.5%;
     margin-left: 20px;
-    height: 800px;
+    height: 750px;
     width: 400px;
 
 }
 
 h2 {
     text-align: center;
-    color: #cdcdcd;
+    color: rgb(54, 54, 54);
     margin-bottom: 25px;
 }
 
@@ -47,7 +47,7 @@ h2 {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #cdcdcd;
+    color: rgb(54, 54, 54);
 }
 
 input[type="text"],
@@ -64,18 +64,16 @@ input[type="password"] {
 button {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(to right, rgb(32, 5, 238), rgb(5, 141, 238));
+    background-color: rgb(5, 127, 214);
     color: #ffffff;
-    border: groove 4px #92c5fc;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
-    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0370e6;
 }
 
 .link-consulta {
@@ -138,13 +136,12 @@ img {
 
 
 .small-note {
-    color: #cdcdcd;
+    color: rgb(54, 54, 54);
     font-size: 12px;
     margin-top: 10px;
 }
 span{
-
-    color: #cdcdcd;
+    color: rgb(54, 54, 54);
 }
 .Textinho{
     text-align: center;
