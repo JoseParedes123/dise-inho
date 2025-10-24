@@ -1,7 +1,7 @@
 /* Estilos compartidos y específicos para la página de Crear cuenta */
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color:rgb(255, 255, 255);
+    background-color:#eaeded;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -22,11 +22,11 @@ body {
 }
 
 .container {
-    background-color:rgb(255, 255, 255);
+    background-color: #232f3e;
     padding: 30px;
     border-radius: 0px 2px 2px 0px;
-    border: solid #cdcdcd;
-    box-shadow: 0px 0px 20px #cdcdcd;
+    border: solid #ff9900;
+    box-shadow: 0px 0px 20px #565959;
     max-width: 89.5%;
     margin-left: 20px;
     height: 750px;
@@ -36,7 +36,7 @@ body {
 
 h2 {
     text-align: center;
-    color: rgb(54, 54, 54);
+    color: #ff9900;
     margin-bottom: 25px;
 }
 
@@ -47,7 +47,7 @@ h2 {
 label {
     display: block;
     margin-bottom: 5px;
-    color: rgb(54, 54, 54);
+    color: #ff9900;
 }
 
 input[type="text"],
@@ -56,7 +56,7 @@ input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px groove #1a1a1a;
+    border: 1px groove #232f3e;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -64,28 +64,31 @@ input[type="password"] {
 button {
     width: 100%;
     padding: 12px;
-    background-color: rgb(5, 127, 214);
+    background-color: #ff9900;
     color: #ffffff;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
+    
 }
 
 button:hover {
-    background-color: #0370e6;
+    background-color: #ffffff;
+    color: #ff9900;
 }
 
 .link-consulta {
     display: block;
     text-align: center;
     margin-top: 20px;
-    color: #007bff;
+    color: #ff9900;
     text-decoration: none;
 }
 
 .link-consulta:hover {
     text-decoration: underline;
+    color: #ffffff;
 }
 
 img {
@@ -136,13 +139,14 @@ img {
 
 
 .small-note {
-    color: rgb(54, 54, 54);
+    color: #ffffff;;
     font-size: 12px;
     margin-top: 10px;
 }
 span{
-    color: rgb(54, 54, 54);
+    color: #ffffff;
 }
 .Textinho{
     text-align: center;
+    color: #ffffff;
 }
