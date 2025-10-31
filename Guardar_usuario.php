@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $EMail = $conn->real_escape_string($_POST['correo']);
 
-    $Contraseña = $conn->real_escape_string($_POST['password']);
+    $ContraseñaContraseña = $conn->real_escape_string($_POST['password']);
 
     $Numero_telefono = $conn->real_escape_string($_POST['telefono']);
 

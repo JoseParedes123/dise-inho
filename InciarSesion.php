@@ -39,7 +39,7 @@
             </form>
             <div class="Textinho">
                 <p class="small-note"><span>Corporativa Guterake joeshop</span></p>
-                <a href="crear.php" class="link-consulta">¿No tienes una cuenta?</a>
+                <a href="Crear.php" class="link-consulta">¿No tienes una cuenta?</a>
             </div>
         </div>
     </div>

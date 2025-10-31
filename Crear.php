@@ -44,7 +44,7 @@
             </form>
             <div class="Textinho">
                 <span><p>Guterake joeshop</p></span>
-                <a href="IniciarSesion.php" class="link-consulta">¿Ya tienes cuenta? Iniciar sesión</a>
+                <a href="InciarSesion.php" class="link-consulta">¿Ya tienes cuenta? Iniciar sesión</a>
             </div>
         </div>
     </div>

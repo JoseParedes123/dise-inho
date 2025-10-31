@@ -10,11 +10,13 @@
     <div class="cuenta-container">
         <h1>Mi Cuenta</h1>
         <div class="info-box">
-            <p><strong>Nombre:</strong> <?php echo htmlspecialchars($usuario['Nombre']); ?></p>
-            <p><strong>Apellido:</strong> <?php echo htmlspecialchars($usuario['Apellido']); ?></p>
-            <p><strong>Correo:</strong> <?php echo htmlspecialchars($usuario['EMail']); ?></p>
-            <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($usuario['Numero_telefono']); ?></p>
-            <p><strong>DNI:</strong> <?php echo htmlspecialchars($usuario['DNI']); ?></p>
+            <p><strong>Nombre:</strong> <?php echo htmlspecialchars($Nombre['nombre']); ?></p>
+            <p><strong>Apellido:</strong> <?php echo htmlspecialchars($Apellido['apellido']); ?></p>
+            <p><strong>Correo:</strong> <?php echo htmlspecialchars($EMail['correo']); ?></p>
+            <p><strong>Constraseña:</strong> <?php echo htmlspecialchars($Contraseña['password']); ?></p>
+            <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($Numero_telefono['telefono']); ?></p>
+            <p><strong>DNI:</strong> <?php echo htmlspecialchars($DNI['DNI']); ?></p>
+            <p><strong>Edad:</strong> <?php echo htmlspecialchars($Edad['Edad']); ?></p>
         </div>
         <div class="acciones">
             <a href="CerrarSesion.php" class="btn">Cerrar Sesión</a>
