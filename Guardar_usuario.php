@@ -8,7 +8,7 @@ $username = "root";        // Usuario por defecto de MySQL en XAMPP/WAMP
 
 $password = "";            // Contraseña por defecto (vacía) en XAMPP/WAMP
     
-$dbname = "guterke joeshop";       // Nombre de la base de datos que crearon
+$dbname = "samazon";       // Nombre de la base de datos que crearon
 
 $table  = "usuario";
 
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         <p>Puede ingresar.</p>
 
-                        <a href='../main/Guterake.html'>ir al inicio</a>
+                        <a href='/dise-inho/Guterake.php'>ir al inicio</a>
 
 
                     </div>
