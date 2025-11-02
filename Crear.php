@@ -10,7 +10,7 @@
     <div class="main-content-wrapper">
         <div class="container">
             <h2>Crear cuenta</h2>
-            <form action="REGISTRAR.php" method="POST" id="form-registro" novalidate>
+            <form action="registrar.php" method="POST" id="form-registro" novalidate>
                 <div class="form-group">
                     <label for="nombre"><strong>Nombre:</strong></label>
                     <input type="text" id="nombre" name="nombre" required>
@@ -44,7 +44,7 @@
             </form>
             <div class="Textinho">
                 <span><p>Guterake joeshop</p></span>
-                <a href="InciarSesion.php" class="link-consulta">¿Ya tienes cuenta? Iniciar sesión</a>
+                <a href="IniciarSesion.php" class="link-consulta">¿Ya tienes cuenta? Iniciar sesión</a>
             </div>
         </div>
     </div>
