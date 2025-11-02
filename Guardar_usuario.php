@@ -1,168 +1,73 @@
 <?php
+// 1. Iniciar la sesión al principio
+session_start();
 
-// Configuración de la base de datos
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-$servername = "localhost"; // Generalmente "localhost" para entornos locales
+// 2. Datos de conexión a la base de datos (Reutilizados de tu código de registro)
+$host = "localhost";
+$db   = "samazon";
+$user = "root";      
+$pass = "";          // Cambiar por tu contraseña de MySQL
 
-$username = "root";        // Usuario por defecto de MySQL en XAMPP/WAMP
-
-$password = "";            // Contraseña por defecto (vacía) en XAMPP/WAMP
-    
-$dbname = "samazon";       // Nombre de la base de datos que crearon
-
-$table  = "usuario";
-
-
-
-// Crear conexión - corregido los nombres de variables
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
+// Crear conexión
+$conn = new mysqli($host, $user, $pass, $db);
 
 // Verificar conexión
-
 if ($conn->connect_error) {
-
     die("Conexión fallida: " . $conn->connect_error);
-
 }
 
-// Verificar si el formulario ha sido enviado (método POST)
+// 3. Recibir datos del formulario de inicio de sesión
+// Asumimos que los campos del formulario HTML son 'correo' y 'password'
+$correo = $_POST['correo'] ?? '';
+$password_ingresada = $_POST['password'] ?? '';
+$login_exitoso = false;
+$mensaje_error = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// 4. Preparar la consulta segura (Buscar usuario por email)
+// Seleccionamos el ID, Nombre y la Contraseña hasheada
+$stmt = $conn->prepare("SELECT ID_usuario, Nombre, Contraseña FROM usuario WHERE EMail = ?");
+$stmt->bind_param("s", $correo);
+$stmt->execute();
+$resultado = $stmt->get_result();
 
-    // Obtener los datos del formulario y sanitizarlos
+if ($resultado->num_rows === 1) {
+    // Usuario encontrado, obtener los datos
+    $usuario = $resultado->fetch_assoc();
+    $hash_contrasena_db = $usuario['Contraseña'];
 
-    $Nombre = $conn->real_escape_string($_POST['nombre']);
-
-    $Apellido = $conn->real_escape_string($_POST['apellido']);
-
-    $EMail = $conn->real_escape_string($_POST['correo']);
-
-    $ContraseñaContraseña = $conn->real_escape_string($_POST['password']);
-
-    $Numero_telefono = $conn->real_escape_string($_POST['telefono']);
-
-    $DNI = $conn->real_escape_string($_POST['DNI']);
-
-    $Tarjeta = $conn->real_escape_string($_POST['Tarjeta']);
-
-    $Edad = $conn->real_escape_string($_POST['Edad']);
-
-
-
-
-
-    // Preparar la consulta SQL - corregido nombre de tabla a 'usuario'
-
-    $sql = "INSERT INTO usuario (Nombre, Apellido, EMail, Contraseña, Numero_telefono, DNI, Tarjeta, edad) VALUES ('$Nombre', '$Apellido', '$EMail', '$Contraseña', '$Numero_telefono', '$DNI', '$Tarjeta', '$Edad')";
-
-
-
-    // Ejecutar la consulta
-
-    if ($conn->query($sql) === TRUE) {
-
-        echo "<!DOCTYPE html>
-
-                <html lang='es'>
-
-                <head>
-
-                    <meta charset='UTF-8'>
-
-                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
-                    <title>Resultado del Ingreso</title>
-
-                    <style>
-
-                        body { font-family: Arial, sans-serif; background-color: rgb(17, 17, 17); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; text-align: center; }
-
-                        .message-box { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); width: 400px; max-width: 90%; }
-
-                        h2 { color: #28a745; margin-bottom: 20px; }
-
-                        p { margin-bottom: 20px; }
-
-                        a { display: inline-block; padding: 10px 20px; background-color: #d61d1d; color: white; border-radius: 4px; text-decoration: none; transition: background-color 0.3s ease; }
-
-                        a:hover { background-color: #0056b3; }
-
-                    </style>
-
-                </head>
-
-                <body>
-
-                    <div class='message-box'>
-
-                        <h2>¡Éxito!</h2>
-
-                        <p>Puede ingresar.</p>
-
-                        <a href='/dise-inho/Guterake.php'>ir al inicio</a>
-
-
-                    </div>
-
-                </body>
-
-                </html>";
-
+    // 5. Verificar la contraseña con password_verify()
+    if (password_verify($password_ingresada, $hash_contrasena_db)) {
+        
+        // ¡Inicio de Sesión Exitoso!
+        $login_exitoso = true;
+        
+        // 6. Configurar variables de sesión
+        $_SESSION["loggedin"] = true;
+        $_SESSION["ID_Usuario"] = $usuario['ID_Usuario'];
+        $_SESSION["nombre_usuario"] = $usuario['Nombre'];
+        $_SESSION["email_usuario"] = $correo;
+        
+        // 7. Redirigir a la página de bienvenida
+        header("Location: Guterake.php"); // Redirige a donde el usuario debe ir
+        exit;
     } else {
-
-        echo "<!DOCTYPE html>
-
-                <html lang='es'>
-
-                <head>
-
-                    <meta charset='UTF-8'>
-
-                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
-                    <title>Error de Ingreso</title>
-
-                    <style>
-
-                        body { font-family: Arial, sans-serif; background-color:rgb(0, 0, 0); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; text-align: center; }
-
-                        .message-box { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); width: 400px; max-width: 90%; }
-
-                        h2 { color: #dc3545; margin-bottom: 20px; }
-
-                        p { margin-bottom: 20px; }
-
-                        a { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 4px; text-decoration: none; transition: background-color 0.3s ease; }
-
-                        a:hover { background-color: #0056b3; }
-
-                    </style>
-
-                </head>
-
-                <body>
-
-                    <div class='message-box'>
-
-                        <h2>¡Error!</h2>
-
-                        <p>Error al ingresar: " . $conn->error . "</p>
-
-                    </div>
-
-                </body>
-
-                </html>";
-
+        // Contraseña incorrecta
+        $mensaje_error = "Credenciales incorrectas.";
     }
-
+} else {
+    // Email no encontrado
+    $mensaje_error = "Credenciales incorrectas.";
 }
 
-// Cerrar conexión
+// 8. Si falla el inicio de sesión, mostrar mensaje de error
+if (!$login_exitoso) {
+    echo "Error en el inicio de sesión: " . $mensaje_error . " <a href='login.php'>Volver al Login</a>";
+}
 
+$stmt->close();
 $conn->close();
-
 ?>
