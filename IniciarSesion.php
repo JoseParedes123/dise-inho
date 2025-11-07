@@ -16,6 +16,10 @@
                     <input type="email" id="correo" name="correo" required>
                 </div>
                 <div class="form-group">
+                    <label for="DNI"><strong>DNI:</strong></label>
+                    <input type="number" id="DNI" name="DNI">
+                </div>
+                <div class="form-group">
                     <label for="password"><strong>Contraseña:</strong></label>
                     <input type="password" id="password" name="password" minlength="6" required>
                 </div>

@@ -23,13 +23,14 @@ if ($conn->connect_error) {
 // 3. Recibir datos del formulario de inicio de sesión
 // Asumimos que los campos del formulario HTML son 'correo' y 'password'
 $correo = $_POST['correo'] ?? '';
+$dni = $_POST['DNI'] ?? NULL;
 $password_ingresada = $_POST['password'] ?? '';
 $login_exitoso = false;
 $mensaje_error = "";
 
 // 4. Preparar la consulta segura (Buscar usuario por email)
 // Seleccionamos el ID, Nombre y la Contraseña hasheada
-$stmt = $conn->prepare("SELECT ID_usuario, Nombre, Contraseña FROM usuario WHERE EMail = ?");
+$stmt = $conn->prepare("SELECT ID_usuario, Nombre, DNI, Contraseña FROM usuario WHERE EMail = ?");
 $stmt->bind_param("s", $correo);
 $stmt->execute();
 $resultado = $stmt->get_result();
@@ -65,7 +66,7 @@ if ($resultado->num_rows === 1) {
 
 // 8. Si falla el inicio de sesión, mostrar mensaje de error
 if (!$login_exitoso) {
-    echo "Error en el inicio de sesión: " . $mensaje_error . " <a href='login.php'>Volver al Login</a>";
+    echo "Error en el inicio de sesión: " . $mensaje_error . " <a href='compara_login.php'>Volver al Login</a>";
 }
 
 $stmt->close();

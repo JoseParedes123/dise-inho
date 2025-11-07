@@ -6,12 +6,13 @@
     <title>Samazon - Tu tienda online de confianza</title>
     <link rel="shortcut icon" href="https://steamcdn-a.akamaihd.net/apps/tf2/blog/images/favicon.ico">
     <link rel="stylesheet" href="../Guterake.css">
+    <script src="../order.js" defer></script>
 </head>
 <body>
     <header>
         <div class="header-container">
-            <a href="#" class="logo-link">
-                <img src="../samazon.png" alt="Samazon Logo" class="logo">
+            <a href="../Guterake.php" class="logo-link">
+                <img src="../samazon_logo.png" alt="Samazon Logo" class="logo">
             </a>
             
             <div class="search-bar">
@@ -20,10 +21,9 @@
             </div>
             
             <div class="nav-links">
-                <a href="../../cuentas.php" class="nav-link">Cuenta</a>
-                <a href="#" class="nav-link">Pedidos</a>
-                <a href="#" class="cart-icon">
-                    🛒
+                <a href="../cuentas.php" class="nav-link">Cuenta</a>
+                <a href="../order.php" class="cart-icon">
+                    🛒 Pedidos
                     <span class="cart-count">0</span>
                 </a>
             </div>
@@ -49,12 +49,17 @@
 
         <main class="products-container">
             <div class="product-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Arduino_Uno_-_R3.jpg/250px-Arduino_Uno_-_R3.jpg" alt="Computadora de escritorio" class="product-image">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_700019-MLA43774141940_102020-F.webp" alt="Computadora de escritorio" class="product-image">
                 <div class="product-info">
                     <h3 class="product-title">Arduino UNO</h3>
                     <p class="product-description"></p>
-                    <div class="product-price">$99.99</div>
-                    <button class="add-to-cart">Añadir al carrito</button>
+                    <p class="product-description">Placa Programación Arduino Uno R3 Smd Atmega328 C/cable Usb</p>
+                    <div class="product-price">$12.299</div>
+                    <button class="add-to-cart" onclick="cart.addToCart({
+                        name: 'Arduino UNO',
+                        price: '12299',
+                        image: 'https://http2.mlstatic.com/D_NQ_NP_2X_700019-MLA43774141940_102020-F.webp'
+                    })">Añadir al carrito</button>
                 </div>
             </div>
             
@@ -62,18 +67,22 @@
                 <img src="https://acdn-us.mitiendanube.com/stores/975/836/products/343401-mla20324226619_062015-o-084c6ca10b68a6830615565089237035-640-0.jpg" alt="Laptop" class="product-image">
                 <div class="product-info">
                     <h3 class="product-title">Protoboard</h3>
-                    <p class="product-description">Portátil de 14 pulgadas, peso inferior a 1kg, batería de 12 horas y pantalla táctil Full HD.</p>
-                    <div class="product-price">$749.99</div>
-                    <button class="add-to-cart">Añadir al carrito</button>
+                    <p class="product-description">Protoboard Experimental 400 Puntos 83x55 Arduino Electronica.</p>
+                    <div class="product-price">$4.700</div>
+                    <button class="add-to-cart" onclick="addToCart({
+                        name: 'Protoboard',
+                        price: '4700',
+                        image: 'https://acdn-us.mitiendanube.com/stores/975/836/products/343401-mla20324226619_062015-o-084c6ca10b68a6830615565089237035-640-0.jpg'
+                    })">Añadir al carrito</button>
                 </div>
             </div>
             
             <div class="product-card">
-                <img src="https://makeblock.com.ar/wp-content/uploads/que-es-un-jumper-y-cual-es-su-funcion.webp" alt="Tablet" class="product-image">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_932756-MLA49547535658_042022-F.webp" alt="Tablet" class="product-image">
                 <div class="product-info">
-                    <h3 class="product-title">Jumpers</h3>
-                    <p class="product-description">Tablet de 10 pulgadas con stylus incluido, ideal para trabajo creativo y entretenimiento.</p>
-                    <div class="product-price">$399.99</div>
+                    <h3 class="product-title">Cables Para Macho Hembra 20cm Protoboard 40 Unidades</h3>
+                    <p class="product-description">Kit de 40 cables tipo jumper macho-hembra de 20cm c/u. Cables flexibles de diferentes colores. Ideal para uso en protoboard, con arduino y prototipado en general.</p>
+                    <div class="product-price">$3.099</div>
                     <button class="add-to-cart">Añadir al carrito</button>
                 </div>
             </div>
@@ -81,35 +90,37 @@
             <div class="product-card">
                 <img src="https://www.electronicamendoza.com.ar/content/images/thumbs/606b3a7b0fa6c30001740f83_sensor-ultrasonico_600.jpeg" alt="Monitor" class="product-image">
                 <div class="product-info">
-                    <h3 class="product-title">Sensor de ultrasonido</h3>
-                    <p class="product-description">Pantalla curva con resolución 4K, tasa de refresco 144Hz y tecnología FreeSync.</p>
-                    <div class="product-price">$429.99</div>
+                    <h3 class="product-title">Sensor Distancia Ultrasonido Ultrasonico Sr04 Hc Arduino</h3>
+                    <p class="product-description">El sensor HC-SR04 es una excelente opción como sensor de distancia ultrasónico. Su relación de costo/beneficio lo hace óptimo para un gran abanico de aplicaciones.
+                    </p>
+                    <div class="product-price">$4.099</div>
                     <button class="add-to-cart">Añadir al carrito</button>
                 </div>
             </div>
             
             <div class="product-card">
-                <img src="https://www.prometec.net/wp-content/uploads/2017/01/sensor-infrarrojo.jpg" alt="Teclado" class="product-image">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_933341-MLA52961108416_122022-F.webp" alt="Teclado" class="product-image">
                 <div class="product-info">
-                    <h3 class="product-title">Sensores de Infrarojo</h3>
-                    <p class="product-description">Teclado gaming con switches mecánicos, iluminación RGB personalizable y reposamuñecas.</p>
-                    <div class="product-price">$89.99</div>
+                    <h3 class="product-title">Modulo Detector Sensor De Obstaculos Infrarrojo Pic Arduino</h3>
+                    <p class="product-description">Este Modulo sensor infrarrojo emisor y receptor se puede adaptar a luz ambiente y a la distancia de deteccion de objetos a traves de un potenciometro que viene en su PCB, La distancia de deteccion puede variarse entre 2cm y 30cm.</p>
+                    <div class="product-price">$3.344</div>
                     <button class="add-to-cart">Añadir al carrito</button>
                 </div>
             </div>
             
             <div class="product-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZYvESnnWoguL-RV77Lssuq4g3VBbw-Cf-ow&s" alt="Ratón" class="product-image">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_956308-MLA41027229144_032020-F.webp" alt="Ratón" class="product-image">
                 <div class="product-info">
-                    <h3 class="product-title">Resistencias</h3>
-                    <p class="product-description">Ratón ergonómico con sensor de alta precisión, batería de larga duración y diseño ambidiestro.</p>
-                    <div class="product-price">$49.99</div>
+                    <h3 class="product-title">Kit 600 Resistencias 1/4 1% 30 Valores Diversos</h3>
+                    <p class="product-description">Pack de 600 Resistencias 1/4 W •TOLERANCIA: 1 % .POTENCIA :1/4 W 30 Valores .20 unidades de cada una</p>
+                    <div class="product-price">$13.410</div>
                     <button class="add-to-cart">Añadir al carrito</button>
                 </div>
             </div>
         </main>
     </div>
     <script src="../Guterake.js"></script>
+    <script src="../order.js"></script>
 
     <footer>
         <div class="footer-container">

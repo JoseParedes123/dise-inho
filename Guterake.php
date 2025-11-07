@@ -10,8 +10,8 @@
 <body>
     <header>
         <div class="header-container">
-            <a href="#" class="logo-link">
-                <img src="samazon.png" alt="Samazon Logo" class="logo">
+            <a href="Guterake.php" class="logo-link">
+                <img src="samazon_logo.png" alt="Samazon Logo" class="logo">
             </a>
             
             <div class="search-bar">
@@ -21,9 +21,8 @@
             
             <div class="nav-links">
                 <a href="cuentas.php" class="nav-link">Cuenta</a>
-                <a href="#" class="nav-link">Pedidos</a>
-                <a href="#" class="cart-icon">
-                    🛒
+                <a href="order.php" class="cart-icon">
+                    🛒 Pedidos
                     <span class="cart-count">0</span>
                 </a>
             </div>
@@ -35,11 +34,11 @@
             <h3>Categorías</h3>
             <ul class="category-list">                
                 <li><a href="../dise-inho/categorias/productos1.html">Electrónica</a></li>
-                <li><a href="../dise-inho/categorias/productos2.html">>Informática</a></li>
-                <li><a href="../dise-inho/categorias/productos3.html">>Hogar y Cocina</a></li>
-                <li><a href="../dise-inho/categorias/productos4.html">>Libros</a></li>
-                <li><a href="../dise-inho/categorias/productos5.html">>Juguetes y Juegos</a></li>
-                <li><a href="../dise-inho/categorias/productos6.html">>Deportes</a></li>
+                <li><a href="../dise-inho/categorias/productos2.html">Informática</a></li>
+                <li><a href="../dise-inho/categorias/productos3.html">Hogar y Cocina</a></li>
+                <li><a href="../dise-inho/categorias/productos4.html">Libros</a></li>
+                <li><a href="../dise-inho/categorias/productos5.html">Juguetes y Juegos</a></li>
+                <li><a href="../dise-inho/categorias/productos6.html">Deportes</a></li>
             </ul>
             
             <h3 style="margin-top: 20px;">Filtros</h3>

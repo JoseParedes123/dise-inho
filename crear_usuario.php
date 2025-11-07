@@ -22,6 +22,8 @@ $apellido = $_POST['apellido'] ?? '';
 $correo = $_POST['correo'] ?? '';
 $telefono = $_POST['telefono'] ?? NULL;
 $dni = $_POST['DNI'] ?? NULL;
+$Tarjeta = $_POST['Tarjeta'] ?? NULL;
+$Edad = $_POST['Edad'] ?? NULL;
 $password = $_POST['password'] ?? '';
 $confirm_password = $_POST['confirm_password'] ?? '';
 
@@ -32,9 +34,9 @@ if ($password !== $confirm_password) {
 }
 
 // Preparar y ejecutar consulta segura
-$stmt = $conn->prepare("INSERT INTO usuario (Nombre, Apellido, EMail, Contraseña, Numero_telefono, DNI) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO usuario (Nombre, Apellido, EMail, Contraseña, Numero_telefono, DNI, Tarjeta, Edad) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Hashear contraseña
-$stmt->bind_param("ssssii", $nombre, $apellido, $correo, $hashed_password, $telefono, $dni);
+$stmt->bind_param("ssssiiii", $nombre, $apellido, $correo, $hashed_password, $telefono, $dni, $Tarjeta, $Edad);
 if ($stmt->execute()) {
     // Redirigir a Guterake.php
     header("Location: Guterake.php");

@@ -10,7 +10,7 @@
     <div class="main-content-wrapper">
         <div class="container">
             <h2>Crear cuenta</h2>
-            <form action="registrar.php" method="POST" id="form-registro" novalidate>
+            <form action="crear_usuario.php" method="POST" id="form-registro" novalidate>
                 <div class="form-group">
                     <label for="nombre"><strong>Nombre:</strong></label>
                     <input type="text" id="nombre" name="nombre" required>
@@ -30,6 +30,14 @@
                 <div class="form-group">
                     <label for="DNI"><strong>DNI:</strong></label>
                     <input type="number" id="DNI" name="DNI">
+                </div>
+                <div class="form-group">
+                    <label for="Tarjeta"><strong>Tarjeta:</strong></label>
+                    <input type="number" id="Tarjeta" name="Tarjeta">
+                </div>
+                <div class="form-group">
+                    <label for="Edad"><strong>Edad:</strong></label>
+                    <input type="number" id="Edad" name="Edad">
                 </div>
                 <div class="form-group">
                     <label for="password"><strong>Contraseña:</strong></label>
