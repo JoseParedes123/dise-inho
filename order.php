@@ -6,7 +6,7 @@
     <title>Samazon - Tu tienda online de confianza</title>
     <link rel="shortcut icon" href="https://steamcdn-a.akamaihd.net/apps/tf2/blog/images/favicon.ico">
     <link rel="stylesheet" href="Order.css">
-    <script src="order.js" defer></script>
+    <script src="Guterake.js" defer></script>
 </head>
 <body>
     <header>
@@ -45,8 +45,7 @@
                     </tr>
                 </thead>
                 <tbody id="orderList">
-                    <!-- Los productos se cargarán aquí dinámicamente -->
-                </tbody>
+                    </tbody>
             </table>
         </div>
         <div class="cart-summary">
@@ -54,8 +53,10 @@
                 <span>Total:</span>
                 <span id="cartTotal">$0.00</span>
             </div>
-            <button id="checkoutButton" class="checkout-button">Realizar Pedido</button>
+            <button id="realizar-pedido-btn" class="checkout-button">Realizar Pedido</button>
         </div>
     </main>
 
-    <script src="order.js"></script>
+    <script src="Guterake.js"></script>
+</body>
+</html>
