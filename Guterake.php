@@ -109,6 +109,7 @@
         </main>
     </div>
     <script src="Guterake.js"></script>
+    <script src="priceFilter.js"></script>
 
     <footer>
         <div class="footer-container">
