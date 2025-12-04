@@ -12,7 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado->num_rows > 0) {
         $usuario = $resultado->fetch_assoc();
         $_SESSION['usuario'] = $usuario; // Guardar todos los datos
-        header("Location: cuenta.php");
+        $_SESSION['EMail'] = $usuario['EMail']; // Guardar email específicamente
+        $_SESSION['usuario_id'] = isset($usuario['id']) ? $usuario['id'] : null;
+        header("Location: cuentas.php");
         exit();
     } else {
         echo "<script>alert('Correo o contraseña incorrectos'); window.location='IniciarSesion.php';</script>";

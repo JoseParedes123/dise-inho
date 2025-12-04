@@ -52,7 +52,7 @@
                 <div class="product-info">
                     <h3 class="product-title">Computadora Gaming Pro</h3>
                     <p class="product-description">PC de alto rendimiento con procesador Intel i7, 16GB RAM, SSD 1TB y tarjeta gráfica RTX 3060.</p>
-                    <div class="product-price">$899.99</div>
+                    <div class="product-price">$899999</div>
                     <button class="add-to-cart" data-product-id="1">Añadir al carrito</button>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="product-info">
                     <h3 class="product-title">Laptop Ultraligera</h3>
                     <p class="product-description">Portátil de 14 pulgadas, peso inferior a 1kg, batería de 12 horas y pantalla táctil Full HD.</p>
-                    <div class="product-price">$749.99</div>
+                    <div class="product-price">$749999</div>
                     <button class="add-to-cart" data-product-id="2">Añadir al carrito</button>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                 <div class="product-info">
                     <h3 class="product-title">Tablet Multiusos</h3>
                     <p class="product-description">Tablet de 10 pulgadas con stylus incluido, ideal para trabajo creativo y entretenimiento.</p>
-                    <div class="product-price">$399.99</div>
+                    <div class="product-price">$399999</div>
                     <button class="add-to-cart" data-product-id="3">Añadir al carrito</button>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                 <div class="product-info">
                     <h3 class="product-title">Monitor Curvo 32"</h3>
                     <p class="product-description">Pantalla curva con resolución 4K, tasa de refresco 144Hz y tecnología FreeSync.</p>
-                    <div class="product-price">$429.99</div>
+                    <div class="product-price">$429999</div>
                     <button class="add-to-cart" data-product-id="4">Añadir al carrito</button>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                 <div class="product-info">
                     <h3 class="product-title">Teclado Mecánico RGB</h3>
                     <p class="product-description">Teclado gaming con switches mecánicos, iluminación RGB personalizable y reposamuñecas.</p>
-                    <div class="product-price">$89.99</div>
+                    <div class="product-price">$89999</div>
                     <button class="add-to-cart" data-product-id="5">Añadir al carrito</button>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                 <div class="product-info">
                     <h3 class="product-title">Ratón Inalámbrico</h3>
                     <p class="product-description">Ratón ergonómico con sensor de alta precisión, batería de larga duración y diseño ambidiestro.</p>
-                    <div class="product-price">$49.99</div>
+                    <div class="product-price">$49999</div>
                     <button class="add-to-cart" data-product-id="6">Añadir al carrito</button>
                 </div>
             </div>
