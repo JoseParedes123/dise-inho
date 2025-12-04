@@ -28,19 +28,71 @@ function getCurrentCategoryProducts() {
             });
         }
     });
+    // Si es la página principal (Guterake), intentar obtener productos desde el DOM
+    const currentPage = getCurrentCategory();
+    if ((products.length === 0) && (currentPage.toLowerCase() === 'guterake' || currentPage === '' || currentPage.toLowerCase() === 'index')) {
+        const domIds = getProductIdsFromDOM();
+        domIds.forEach(id => {
+            if (productData[id]) products.push({ id: id, ...productData[id] });
+        });
+    }
     return products;
 }
 
 // Obtener el rango de precios de la categoría actual
 function getCategoryPriceRange() {
     const products = getCurrentCategoryProducts();
-    if (products.length === 0) return { min: 0, max: 1000 };
-    
-    const prices = products.map(p => p.price);
-    const min = Math.floor(Math.min(...prices));
-    const max = Math.ceil(Math.max(...prices));
-    
-    return { min, max };
+    if (products.length > 0) {
+        const prices = products.map(p => parseFloat(p.price));
+        const min = Math.floor(Math.min(...prices));
+        const max = Math.ceil(Math.max(...prices));
+        return { min, max };
+    }
+
+    // Si no hay productos desde productData, y estamos en la página principal, intentar rango desde DOM
+    const currentPage = getCurrentCategory();
+    if (currentPage.toLowerCase() === 'guterake' || currentPage === '' || currentPage.toLowerCase() === 'index') {
+        const domRange = getPriceRangeFromDOM();
+        if (domRange) return domRange;
+    }
+
+    // Fallback: usar todo productData si existe
+    if (typeof productData === 'object') {
+        const allPrices = Object.values(productData).map(p => parseFloat(p.price)).filter(p => !isNaN(p));
+        if (allPrices.length > 0) {
+            return { min: Math.floor(Math.min(...allPrices)), max: Math.ceil(Math.max(...allPrices)) };
+        }
+    }
+
+    return { min: 0, max: 1000 };
+}
+
+// Helpers: leer IDs y precios desde el DOM sin modificar el DOM
+function getProductIdsFromDOM() {
+    const ids = new Set();
+    document.querySelectorAll('.products-container .product-card .add-to-cart').forEach(btn => {
+        const v = btn.getAttribute('data-product-id');
+        const id = v ? parseInt(v) : NaN;
+        if (!isNaN(id)) ids.add(id);
+    });
+    document.querySelectorAll('.products-container .product-card').forEach(card => {
+        const v = card.getAttribute('data-product-id');
+        const id = v ? parseInt(v) : NaN;
+        if (!isNaN(id)) ids.add(id);
+    });
+    return Array.from(ids);
+}
+
+function getPriceRangeFromDOM() {
+    const prices = [];
+    document.querySelectorAll('.products-container .product-card .product-price').forEach(pe => {
+        const text = (pe.textContent || '').trim();
+        const cleaned = text.replace(/[^0-9.,]/g, '').replace(/,/g, '.');
+        const num = parseFloat(cleaned);
+        if (!isNaN(num)) prices.push(num);
+    });
+    if (prices.length === 0) return null;
+    return { min: Math.floor(Math.min(...prices)), max: Math.ceil(Math.max(...prices)) };
 }
 
 // Inicializar el filtro de precio

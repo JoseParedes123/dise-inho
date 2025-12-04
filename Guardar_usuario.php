@@ -29,8 +29,8 @@ $login_exitoso = false;
 $mensaje_error = "";
 
 // 4. Preparar la consulta segura (Buscar usuario por email)
-// Seleccionamos el ID, Nombre y la Contraseña hasheada
-$stmt = $conn->prepare("SELECT ID_usuario, Nombre, DNI, Contraseña FROM usuario WHERE EMail = ?");
+// Seleccionamos todos los datos del usuario
+$stmt = $conn->prepare("SELECT ID_usuario, Nombre, Apellido, EMail, Numero_telefono, DNI, Tarjeta, edad, Contraseña FROM usuario WHERE EMail = ?");
 $stmt->bind_param("s", $correo);
 $stmt->execute();
 $resultado = $stmt->get_result();
@@ -47,13 +47,21 @@ if ($resultado->num_rows === 1) {
         $login_exitoso = true;
         
         // 6. Configurar variables de sesión
-        $_SESSION["loggedin"] = true;
-        $_SESSION["ID_Usuario"] = $usuario['ID_Usuario'];
-        $_SESSION["nombre_usuario"] = $usuario['Nombre'];
-        $_SESSION["email_usuario"] = $correo;
+        $_SESSION['usuario'] = array(
+            'ID_usuario' => $usuario['ID_usuario'],
+            'Nombre' => $usuario['Nombre'],
+            'Apellido' => $usuario['Apellido'],
+            'EMail' => $usuario['EMail'],
+            'Numero_telefono' => $usuario['Numero_telefono'],
+            'DNI' => $usuario['DNI'],
+            'Tarjeta' => $usuario['Tarjeta'],
+            'edad' => $usuario['edad']
+        );
+        $_SESSION['EMail'] = $usuario['EMail'];
+        $_SESSION['usuario_id'] = $usuario['ID_usuario'];
         
         // 7. Redirigir a la página de bienvenida
-        header("Location: Guterake.php"); // Redirige a donde el usuario debe ir
+        header("Location: cuentas.php"); // Redirige a cuentas.php
         exit;
     } else {
         // Contraseña incorrecta
