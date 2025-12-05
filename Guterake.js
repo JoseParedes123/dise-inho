@@ -202,7 +202,13 @@ function processOrder() {
         })
         .then(data => {
             console.log('Respuesta del servidor:', data);
-            alert(data); // Muestra el mensaje de éxito del servidor.
+            // Mostrar mensaje flotante central
+            try {
+                showFloatingMessage('compra realizada con exito');
+            } catch (e) {
+                // Si algo falla, caer de vuelta a alert para no romper el flujo
+                alert(data);
+            }
 
             // 1. Vaciar el carrito visualmente y del localStorage
             cartItems = [];
@@ -244,7 +250,6 @@ if (cartCountElement) {
 function addToCart(event) {
     // Obtenemos el ID del producto que se está añadiendo
     const productId = event.currentTarget.getAttribute('data-product-id');
-
     // 1. Lógica para el Local Storage (Mantener el carrito local)
     cartItems.push(productId);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cartItems));
@@ -254,9 +259,9 @@ function addToCart(event) {
     if (cartCountElement) {
         cartCountElement.textContent = cartItems.length;
     }
-
     // 3. 🚀 NUEVA LÓGICA: Agregar a la Base de Datos mediante fetch
-    fetch('../addToCart.php', { 
+        const addCartUrl = window.location.pathname.includes('/categorias/') ? '../addToCart.php' : 'addToCart.php';
+    fetch(addCartUrl, { 
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -451,3 +456,80 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCart();
     }
 });
+
+// Función para mostrar un mensaje flotante centrado
+function showFloatingMessage(message, options = {}) {
+    const duration = options.duration || 3500;
+
+    // Evitar crear múltiples mensajes superpuestos
+    if (document.getElementById('floating-message')) {
+        // Actualizar texto y reiniciar temporizador
+        const existing = document.getElementById('floating-message');
+        existing.querySelector('.fm-text').textContent = message;
+        clearTimeout(existing._fmTimeout);
+        existing._fmTimeout = setTimeout(() => {
+            existing.classList.remove('fm-show');
+            setTimeout(() => existing.remove(), 300);
+        }, duration);
+        return;
+    }
+
+    const container = document.createElement('div');
+    container.id = 'floating-message';
+    container.className = 'floating-message';
+    container.style.position = 'fixed';
+    container.style.left = '50%';
+    container.style.top = '50%';
+    container.style.transform = 'translate(-50%, -50%)';
+    container.style.zIndex = 9999;
+    container.style.background = 'rgba(0,0,0,0.85)';
+    container.style.color = 'white';
+    container.style.padding = '18px 24px';
+    container.style.borderRadius = '8px';
+    container.style.boxShadow = '0 8px 30px rgba(0,0,0,0.4)';
+    container.style.fontSize = '16px';
+    container.style.fontWeight = '600';
+    container.style.maxWidth = '90%';
+    container.style.textAlign = 'center';
+    container.style.opacity = '0';
+    container.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+
+    const text = document.createElement('div');
+    text.className = 'fm-text';
+    text.textContent = message;
+    container.appendChild(text);
+
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '✕';
+    closeBtn.setAttribute('aria-label', 'Cerrar mensaje');
+    closeBtn.style.marginLeft = '12px';
+    closeBtn.style.background = 'transparent';
+    closeBtn.style.border = 'none';
+    closeBtn.style.color = 'white';
+    closeBtn.style.fontSize = '18px';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.position = 'absolute';
+    closeBtn.style.top = '6px';
+    closeBtn.style.right = '8px';
+    closeBtn.style.padding = '4px';
+    closeBtn.addEventListener('click', () => {
+        container.classList.remove('fm-show');
+        setTimeout(() => container.remove(), 200);
+    });
+    container.appendChild(closeBtn);
+
+    document.body.appendChild(container);
+
+    // Forzar reflow para animar
+    void container.offsetWidth;
+    container.classList.add('fm-show');
+    container.style.opacity = '1';
+    container.style.transform = 'translate(-50%, -50%) scale(1)';
+
+    // Auto-cerrar
+    container._fmTimeout = setTimeout(() => {
+        container.classList.remove('fm-show');
+        container.style.opacity = '0';
+        setTimeout(() => container.remove(), 300);
+    }, duration);
+}

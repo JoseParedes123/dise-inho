@@ -645,6 +645,61 @@
                 padding: 10px;
             }
 
+        /* Estilos para mensaje flotante central */
+        .floating-message {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0.96);
+            z-index: 9999;
+            background: linear-gradient(180deg, rgba(34,40,49,0.95), rgba(17,20,26,0.95));
+            color: #fff;
+            padding: 18px 22px;
+            border-radius: 10px;
+            box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+            font-size: 16px;
+            font-weight: 600;
+            max-width: 520px;
+            width: calc(100% - 40px);
+            text-align: center;
+            opacity: 0;
+            pointer-events: auto;
+            transition: transform 220ms cubic-bezier(.2,.9,.3,1), opacity 220ms ease;
+        }
+
+        .floating-message.fm-show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .floating-message .fm-text {
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .floating-message button[aria-label="Cerrar mensaje"] {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.9);
+            font-size: 18px;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 6px;
+            transition: background 120ms ease, transform 120ms ease;
+        }
+
+        .floating-message button[aria-label="Cerrar mensaje"]:hover {
+            background: rgba(255,255,255,0.06);
+            transform: scale(1.06);
+        }
+
+        @media (max-width: 480px) {
+            .floating-message { font-size: 15px; max-width: 320px; padding: 14px 16px; }
+        }
+
             .search-results-header {
                 padding: 15px;
             }

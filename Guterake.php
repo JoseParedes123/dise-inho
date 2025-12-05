@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samazon - Tu tienda online de confianza</title>
-    <link rel="shortcut icon" href="https://steamcdn-a.akamaihd.net/apps/tf2/blog/images/favicon.ico">
+    <link rel="shortcut icon" href="logo_alt.png">
     <link rel="stylesheet" href="Guterake.css">
 </head>
 <body>
     <header>
         <div class="header-container">
             <a href="Guterake.php" class="logo-link">
-                <img src="samazon_logo.png" alt="Samazon Logo" class="logo">
+                <img src="logo.png" alt="Samazon Logo" class="logo">
             </a>
             
             <div class="search-bar">

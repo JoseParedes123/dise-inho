@@ -80,7 +80,7 @@ if ($rows_transferred == 0) {
 }
 
 // C. Obtener detalles del pedido para el mensaje final
-$sql_details = "SELECT p.Nombre_producto, d.{$columna_cantidad}
+$sql_details = "SELECT p.Nombre AS Nombre_producto, d.{$columna_cantidad}
                 FROM detalle_pedido d
                 JOIN producto p ON d.ID_Producto = p.ID_Producto
                 WHERE d.ID_Pedido = ?";
